@@ -167,7 +167,7 @@ def main_profile(args):
         run_delly = run_delly, calling_params=args.calling_params,
         coverage_fraction_threshold=args.coverage_fraction_threshold,
         missing_cov_threshold=args.missing_cov_threshold, samclip=True,
-        min_depth=args.min_depth,delly_bcf_file=args.delly_bcf
+        min_depth=args.min_depth,delly_bcf_file=args.delly_bcf,variant_annotations=True
     )
 
     ### Reformat the results to TB-Profiler style ###
