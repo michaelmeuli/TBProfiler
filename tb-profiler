@@ -167,7 +167,7 @@ def main_profile(args):
         run_delly = run_delly, calling_params=args.calling_params,
         coverage_fraction_threshold=args.coverage_fraction_threshold,
         missing_cov_threshold=args.missing_cov_threshold, samclip=True,
-        min_depth=args.min_depth,delly_bcf_file=args.delly_bcf,variant_annotations=True
+        min_depth=args.min_depth,delly_bcf_file=args.delly_bcf,variant_annotations=args.variant_annotations
     )
 
     ### Reformat the results to TB-Profiler style ###
@@ -458,6 +458,7 @@ other.add_argument('--verbose','-v',default=0, choices=[0,1,2],help="Verbosity i
 other.add_argument('--version', action='version', version="TBProfiler version %s" % tbp._VERSION)
 other.add_argument('--no_cleanup',action="store_true",help="Don't remove temporary files on error")
 other.add_argument('--delly_bcf',help=argparse.SUPPRESS)
+other.add_argument('--variant_annotations',action="store_true",help=argparse.SUPPRESS)
 parser_sub.set_defaults(func=main_profile)
 
 

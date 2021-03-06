@@ -146,7 +146,7 @@ class vcf:
                             variants[sample].append({"gene_id":gene_id,"gene_name":gene_name,"chr":chrom,"genome_pos":pos,"type":info[0],"change":change,"freq":adr[call2],"nucleotide_change":change, "variant_annotations":annotations})
                     else:
                         variants[sample].append({"gene_id":gene_id,"gene_name":gene_name,"chr":chrom,"genome_pos":pos,"type":info[0],"change":info[6],"freq":adr[call2],"nucleotide_change":info[6], "variant_annotations":annotations})
-                elif "synonymous" in info[0] or info[0] == "stop_retained":
+                elif "synonymous" in info[0] or "stop_retained" in info[0]:
                     change_num,ref_nuc,alt_nuc =  parse_mutation(info[6])
                     change = "%s%s>%s" % (ann_pos,ref_nuc,alt_nuc) if ann_pos else "%s%s>%s" % (pos,ref_nuc,alt_nuc)
                     variants[sample].append({"gene_id":gene_id,"gene_name":gene_name,"chr":chrom,"genome_pos":pos,"type":info[0],"change":change,"freq":adr[call2],"nucleotide_change":info[6], "variant_annotations":annotations})
