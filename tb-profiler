@@ -426,7 +426,7 @@ group = input.add_mutually_exclusive_group(required=True)
 group.add_argument('--read1','-1',help='First read file')
 input.add_argument('--read2','-2',help='Second read file')
 group.add_argument('--bam','-a',help='BAM file. Make sure it has been generated using the H37Rv genome (GCA_000195955.2)')
-input.add_argument('--platform','-m',choices=["illumina","nanopore"],default="illumina",help='NGS Platform used to generate data')
+input.add_argument('--platform','-m',choices=["illumina","nanopore","ion"],default="illumina",help='NGS Platform used to generate data')
 input.add_argument('--db',default='tbdb',help='Mutation panel name')
 input.add_argument('--external_db',type=str,help='Path to db files prefix (overrides "--db" parameter)')
 

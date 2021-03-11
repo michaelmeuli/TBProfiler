@@ -41,7 +41,7 @@ class bam:
         # Run through different options. Start with nanopore because it should
         # only be run with bcftools and will not even take caller into account
         # if it is set the the wrong option
-        if self.platform == "nanopore":
+        if self.platform == "nanopore" or self.platform=="ion":
             self.calling_params = calling_params if calling_params else "-Bq8"
             self.calling_cmd = "bcftools mpileup -f %(ref_file)s %(calling_params)s -a DP,AD -r {1} %(bam_file)s | bcftools call -mv | bcftools filter -e 'FMT/DP<%(min_dp)s' %(missing_cmd)s | bcftools filter -e 'IMF < 0.7' -S 0 -Oz -o %(prefix)s.{2}.vcf.gz" % vars(self)
         elif self.caller == "bcftools":

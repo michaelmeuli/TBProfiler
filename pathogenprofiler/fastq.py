@@ -47,7 +47,7 @@ class fastq:
             quit("ERROR: %s not in accepted aligners\n" % aligner)
 
         self.platform = platform.lower()
-        accepted_platforms = ["illumina","nanopore"]
+        accepted_platforms = ["illumina","nanopore","ion"]
         if self.platform not in accepted_platforms:
             quit("ERROR: %s not in accepted platforms\n" % platform)
 
