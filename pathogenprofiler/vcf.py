@@ -100,7 +100,6 @@ class vcf:
         variants = []
         for l in cmd_out(f"bcftools query -u -f '%CHROM\\t%POS\\t%REF\\t%ALT\\t%ANN\\t[%AD]\\n' {self.filename}"):
             chrom,pos,ref,alt_str,ann_str,ad_str = l.strip().split()
-            
             alleles = [ref] + alt_str.split(",")
             if alt_str=="<DEL>":
                 af_dict = {"<DEL>":1.0}
@@ -129,11 +128,14 @@ class vcf:
                             pass
                         else:
                             continue
+                    if pos=="1490679":
+                        debug("1")
                     if ann[1]=="upstream_gene_variant":
                         r = re.search("[cn].-([0-9]+)",ann[9])
                         if int(r.group(1))>max_promoter_length:
                             continue
-
+                    if pos=="1490679":
+                        debug("2")
                     tmp = {
                         "gene_name":ann[3],
                         "gene_id":ann[4],
