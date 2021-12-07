@@ -119,23 +119,31 @@ class vcf:
                 # if pos=="1673425":
                     # import pdb; pdb.set_trace()
                 for ann in ann_list:
+                    if pos=="1487609":
+                        debug(ann)
+                    if pos=="1487609":
+                        debug("1")
                     if ann[0]!=alt:
                         continue
+                    if pos=="1487609":
+                        debug("2")
                     if ann[1] in filter_out:
                         continue
+                    if pos=="1487609":
+                        debug("3")
                     if bed_file:
                         if ann[3] in [x[1] for x in genes_to_keep] or ann[4] in [x[0] for x in genes_to_keep]:
                             pass
                         else:
                             continue
                     if pos=="1487609":
-                        debug("1")
+                        debug("4")
                     if ann[1]=="upstream_gene_variant":
                         r = re.search("[cn].-([0-9]+)",ann[9])
                         if int(r.group(1))>max_promoter_length:
                             continue
                     if pos=="1487609":
-                        debug("2")
+                        debug("5")
                     tmp = {
                         "gene_name":ann[3],
                         "gene_id":ann[4],
